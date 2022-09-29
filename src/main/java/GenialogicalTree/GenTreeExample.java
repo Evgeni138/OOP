@@ -22,6 +22,7 @@ public class GenTreeExample {
         gt.append(vasya, ivan);
 
         System.out.println(new Research(gt).spend(vasya, Relationship.children));
+        System.out.println(new Reserch2(gt).spend2(petya, Relationship.parent, 2));
     }
 }
 
@@ -94,7 +95,34 @@ class Research {
     }
 }
 
+
 class Reserch2 {
+    ArrayList<Node> tree;
+
+    public Reserch2(GeoTree geoTree) {
+        tree = geoTree.getTree();
+    }
+
+    public ArrayList<Person> spend2 (Person p, Relationship re, int generation) {
+        ArrayList<Person> result = new ArrayList<>();
+        if (generation == 0) {
+            result.add(p);
+        }
+
+
+//        int index = 0;
+//        for (Node t : tree) {
+//            if (t.p1.getFullName() == p.getFullName() && t.re == re) {
+//                for (Node t2 : tree) {
+//                    if (t2.p1.getFullName() == t.p1.getFullName()) {
+//                        result2.add(t2.p1);
+//                    }
+//                }
+//            }
+//        }
+        return result;
+    }
+
     // ...
 }
 
