@@ -6,12 +6,12 @@ import java.util.ArrayList;
 public class GenTreeExample {
 
     public static void main(String[] args) {
-        Person irina = new Person("Irina");
-        Person vasya = new Person("Vasilyi");
-        Person masha = new Person("Masha");
-        Person jane = new Person("Jane");
-        Person ivan = new Person("Ivan");
-        Person petya = new Person("Petr");
+        GenialogicalTree.VersionGFG.Person irina = new GenialogicalTree.VersionGFG.Person("Irina");
+        GenialogicalTree.VersionGFG.Person vasya = new GenialogicalTree.VersionGFG.Person("Vasilyi");
+        GenialogicalTree.VersionGFG.Person masha = new GenialogicalTree.VersionGFG.Person("Masha");
+        GenialogicalTree.VersionGFG.Person jane = new GenialogicalTree.VersionGFG.Person("Jane");
+        GenialogicalTree.VersionGFG.Person ivan = new GenialogicalTree.VersionGFG.Person("Ivan");
+        GenialogicalTree.VersionGFG.Person petya = new GenialogicalTree.VersionGFG.Person("Petr");
 
         GeoTree gt = new GeoTree();
         gt.append(irina, vasya);
@@ -48,15 +48,15 @@ class Person {
 }
 
 class Node {
-    public Node(Person p1, Relationship re, Person p2) {
+    public Node(GenialogicalTree.VersionGFG.Person p1, Relationship re, GenialogicalTree.VersionGFG.Person p2) {
         this.p1 = p1;
         this.re = re;
         this.p2 = p2;
     }
 
-    Person p1;
+    GenialogicalTree.VersionGFG.Person p1;
     Relationship re;
-    Person p2;
+    GenialogicalTree.VersionGFG.Person p2;
 
     @Override
     public String toString() {
@@ -71,7 +71,7 @@ class GeoTree {
         return tree;
     }
 
-    public void append(Person parent, Person children) {
+    public void append(GenialogicalTree.VersionGFG.Person parent, GenialogicalTree.VersionGFG.Person children) {
         tree.add(new Node(parent, Relationship.parent, children));
         tree.add(new Node(children, Relationship.children, parent));
     }
@@ -84,8 +84,8 @@ class Research {
         tree = geoTree.getTree();
     }
 
-    public ArrayList<Person> spend(Person p, Relationship re) {
-        ArrayList<Person> result = new ArrayList<>();
+    public ArrayList<GenialogicalTree.VersionGFG.Person> spend(GenialogicalTree.VersionGFG.Person p, Relationship re) {
+        ArrayList<GenialogicalTree.VersionGFG.Person> result = new ArrayList<>();
         for (Node t : tree) {
             if (t.p1.getFullName() == p.getFullName() && t.re == re) {
                 result.add(t.p2);
@@ -103,8 +103,8 @@ class Reserch2 {
         tree = geoTree.getTree();
     }
 
-    public ArrayList<Person> spend2 (Person p, Relationship re, int generation) {
-        ArrayList<Person> result = new ArrayList<>();
+    public ArrayList<GenialogicalTree.VersionGFG.Person> spend2 (GenialogicalTree.VersionGFG.Person p, Relationship re, int generation) {
+        ArrayList<GenialogicalTree.VersionGFG.Person> result = new ArrayList<>();
         if (generation == 0) {
             result.add(p);
         }
