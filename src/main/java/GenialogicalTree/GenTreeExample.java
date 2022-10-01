@@ -22,7 +22,7 @@ public class GenTreeExample {
         gt.append(vasya, ivan);
 
         System.out.println(new Research(gt).spend(vasya, Relationship.children));
-        System.out.println(new Reserch2(gt).spend2(petya, Relationship.parent, 2));
+        System.out.println(new Reserch2(gt).spend2(masha, Relationship.children, 2));
     }
 }
 
@@ -105,21 +105,22 @@ class Reserch2 {
 
     public ArrayList<Person> spend2 (Person p, Relationship re, int generation) {
         ArrayList<Person> result = new ArrayList<>();
-        if (generation == 0) {
-            result.add(p);
-        }
+//        if (generation == 0) {
+//            result.add(p);
+//        }
 
 
 //        int index = 0;
-//        for (Node t : tree) {
-//            if (t.p1.getFullName() == p.getFullName() && t.re == re) {
-//                for (Node t2 : tree) {
-//                    if (t2.p1.getFullName() == t.p1.getFullName()) {
-//                        result2.add(t2.p1);
-//                    }
-//                }
-//            }
-//        }
+        for (Node t : tree) {
+            if (t.p1.getFullName() == p.getFullName() && t.re == re) {
+                System.out.println(1);
+                for (Node t2 : tree) {
+                    if (t2.p2.getFullName() == t.p1.getFullName()) {
+                        result.add(t2.p1);
+                    }
+                }
+            }
+        }
         return result;
     }
 
