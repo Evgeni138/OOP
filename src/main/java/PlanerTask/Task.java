@@ -3,6 +3,7 @@ package PlanerTask;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+// Орисывается класс Task и для добавления задач в TreeSet для сортировки задач, подключаем иньерфейс Comparable
 public class Task implements Comparable<Task>{
 
     private int id;
@@ -14,6 +15,7 @@ public class Task implements Comparable<Task>{
 
     public Task(){}
 
+    // Описывается конструктор
     public Task(int id, String name, int urgency, Calendar dateRecord, Calendar deadline, String author) {
         this.id = id;
         this.name = name;
@@ -23,6 +25,7 @@ public class Task implements Comparable<Task>{
         this.author = author;
     }
 
+    // Создаются гетеры сетеры
     public int getId() {
         return id;
     }
@@ -71,8 +74,10 @@ public class Task implements Comparable<Task>{
         this.author = author;
     }
 
+    // Задактся формат вывода даты
     SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm d-MM-yyyy");
 
+    // Переопределяется метод toString
     public String toString() {
         return "Task{" +
                 "id=" + id +
@@ -84,6 +89,7 @@ public class Task implements Comparable<Task>{
                 '}';
     }
 
+    // Переопределяется метод сравнения задач для сортировки в TreeSet
     @Override
     public int compareTo(Task o) {
         if (!this.deadline.equals(o.deadline))

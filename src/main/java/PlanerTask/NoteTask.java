@@ -7,10 +7,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.List;
 import java.util.TreeSet;
-
+// Описывается класс NoteTask
 public class NoteTask {
-    private TreeSet<Task> noteTask;
-
+    private TreeSet<Task> noteTask; // Задается один параметр TreeSet из объектов Task
+// Создаются сетеры и гетеры
     public TreeSet<Task> getNoteTask() {
         return noteTask;
     }
@@ -19,6 +19,7 @@ public class NoteTask {
         this.noteTask = noteTask;
     }
 
+    // Описывается метод хаписи файла
     void writeNoteTask(){
         try (FileWriter writer = new FileWriter("data.json")) {
             ObjectMapper objectMapper = new ObjectMapper();
@@ -31,6 +32,7 @@ public class NoteTask {
 
     }
 
+    // Описывается метод чтения файла
     public void readNoteTask() {
         try (FileReader reader = new FileReader("data.json")) {
             BufferedReader rd = new BufferedReader(reader);
