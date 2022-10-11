@@ -8,8 +8,7 @@ public class Program {
     public static void main(String[] args) {
 
         Presenter presener = new Presenter(new CalculationNumber(), new ComplexView());
-
-        System.out.println(presener.sumPres());
+        System.out.println(presener.calculatorPresenter());
 
     }
 }

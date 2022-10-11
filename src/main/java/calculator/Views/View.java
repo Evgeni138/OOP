@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public interface View {
     String getNumber();
-    ArrayList<Double> setNumber();
-    double result();
+
+    ArrayList<Double> setNumber(String s);
+
+    String chooseType();
 }

@@ -15,24 +15,19 @@ public class Presenter {
         complexView = comp;
     }
 
-    public String sumPres() {
-        ArrayList<Double> x = complexView.setNumber();
-        ArrayList<Double> y = complexView.setNumber();
-        String key = complexView.getNumber();
-while (true) {
-    switch (key) {
-        case "+":
-            return calculationNumber.sum(new ComplexNumber(x.get(0), x.get(1)), new ComplexNumber(y.get(0), y.get(1)));
-        case "-":
-            return calculationNumber.sub(new ComplexNumber(x.get(0), x.get(1)), new ComplexNumber(y.get(0), y.get(1)));
-        default:
-            return null;
-    }
-}
-    }
+    public String calculatorPresenter() {
+        String key1 = complexView.chooseType();
 
-//    RacNumber racX = new RacNumber(1, 1);
-//    RacNumber racY = new RacNumber(1, 4);
-//
-//    calculationNumber.sum(racX, racY);
+        ArrayList<Double> x = complexView.setNumber(key1);
+        ArrayList<Double> y = complexView.setNumber(key1);
+        String key = complexView.getNumber();
+        switch (key) {
+            case "+":
+                return calculationNumber.sum(new ComplexNumber(x.get(0), x.get(1)), new ComplexNumber(y.get(0), y.get(1)));
+            case "-":
+                return calculationNumber.sub(new ComplexNumber(x.get(0), x.get(1)), new ComplexNumber(y.get(0), y.get(1)));
+            default:
+                return null;
+        }
+    }
 }
