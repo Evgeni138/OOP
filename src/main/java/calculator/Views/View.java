@@ -1,9 +1,9 @@
 package calculator.Views;
-
+// Описывается интерфейс View
 import java.util.ArrayList;
 
 public interface View {
-    String getNumber();
+    String getAction();
 
     ArrayList<Double> setNumber(String s);
 

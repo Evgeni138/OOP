@@ -2,10 +2,10 @@ package calculator.Views;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
+// Описывается класс ComplexView к которому подключается мнтерфейс View
 public class ComplexView implements View {
     Scanner iScaner = new Scanner(System.in);
-
+// Пеоелпределяются методы View
     @Override
     public String chooseType() {
         System.out.println("Input Type: 1 - Complex numbers (a+b*i), 2 - Rational numbers (a/b)");
@@ -13,7 +13,7 @@ public class ComplexView implements View {
     }
 
     @Override
-    public String getNumber() {
+    public String getAction() {
         System.out.println("Input action (+, -, *, /)");
         return iScaner.next();
     }
@@ -31,9 +31,9 @@ public class ComplexView implements View {
                 listNumber.add(numberB);
                 return listNumber;
             case "2":
-                System.out.print("Input a: ");
+                System.out.print("Input m: ");
                 double numberA1 = iScaner.nextDouble();
-                System.out.print("Input b: ");
+                System.out.print("Input n: ");
                 double numberB1 = iScaner.nextDouble();
                 listNumber.add(numberA1 / numberB1);
                 listNumber.add(0.0);

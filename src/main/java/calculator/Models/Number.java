@@ -1,4 +1,5 @@
 package calculator.Models;
+// Описывается абстрактный класс Number
 
 public abstract class Number {
     double a;
