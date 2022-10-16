@@ -1,6 +1,6 @@
 package massenger;
 
-
+// Описывается класс IdUser, счетчик пользователей
 import java.util.ArrayList;
 import java.util.List;
 

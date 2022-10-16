@@ -3,14 +3,19 @@ package massenger;
 
 public class Program {
     public static void main(String[] args) {
+        // Создаются объекты IdUser и IdMsg для ведения счетчиков пользователей и сообщений
         IdUser idUser = new IdUser();
         IdMsg idMsg = new IdMsg();
+        // Создаются новые пользователи
         User user1 = new User("1user", idUser);
         User user2 = new User("2user", idUser);
         User user3 = new User("3user", idUser);
-        Chat chat1 = user1.creatChat("Chat1");
+        Chat chat1 = user1.creatChat("Chat1"); // user1 создает новый чат
+        // Пользователи user2 и user3 подключаются к чату.
         user2.logInChat(chat1);
         user3.logInChat(chat1);
+
+        // Создаются новые и читаются сообщения
         user2.createMsg("text1", chat1, idMsg);
         user2.createMsg("text2", chat1, idMsg);
         user1.createMsg("text3", chat1, idMsg);

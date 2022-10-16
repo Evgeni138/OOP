@@ -2,7 +2,7 @@ package massenger;
 
 import java.util.ArrayList;
 import java.util.List;
-
+// Описывается класс IdMsg, счетчик сообщений
 public class IdMsg {
     List<Integer> listMsg = new ArrayList<>();
 
