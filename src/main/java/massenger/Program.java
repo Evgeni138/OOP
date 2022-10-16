@@ -1,9 +1,5 @@
 package massenger;
 
-import massenger.Chat;
-import massenger.User;
-import shedule.IdUser;
-
 
 public class Program {
     public static void main(String[] args) {
@@ -34,6 +30,7 @@ public class Program {
         user1.createMsg("text6", chat1);
         user1.createMsg("text7", chat1);
         System.out.println(user3.notReadMessages);
+        System.out.println(user2.notReadMessages);
 
     }
 }

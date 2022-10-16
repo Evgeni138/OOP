@@ -1,8 +1,5 @@
 package massenger;
 
-import shedule.IdMsg;
-import shedule.IdUser;
-
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -39,7 +36,8 @@ public class User {
                 user.notReadMessages.add(newMsg.iD);
             }
         }
-        if (this.notReadMessages.size() > 0) this.readAllMsg(this.notReadMessages);
+        if (this.notReadMessages.size() > 0)
+            this.readAllMsg(this.notReadMessages);
     }
 
     public Queue<Integer> readAllMsg(Queue<Integer> notReadMessages) {
