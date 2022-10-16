@@ -7,9 +7,11 @@ public class Message {
     int iD;
     String textMsg;
     Date date;
-    public Message(String textMsg, IdMsg idMsg) {
+    String auth;
+    public Message(String textMsg, IdMsg idMsg, String auth) {
         iD = idMsg.getRepoId();
         this.textMsg = textMsg;
+        this.auth = auth;
         date = (new GregorianCalendar()).getTime();
     }
 
@@ -19,6 +21,7 @@ public class Message {
                 "iD=" + iD +
                 ", textMsg='" + textMsg + '\'' +
                 ", date=" + date +
+                ", author= " + auth +
                 '}';
     }
 }

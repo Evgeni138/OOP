@@ -8,7 +8,6 @@ public class User {
     String nameUser;
     public Queue<Integer> notReadMessages;
     IdUser idUser;
-    public IdMsg idMsg = new IdMsg();
 
     public User(String nameUser, IdUser idUser) {
         iD = idUser.getRepoId();
@@ -26,9 +25,9 @@ public class User {
         chat.listUser.add(this);
     }
 
-    public void createMsg(String text, Chat chat) {
+    public void createMsg(String text, Chat chat, IdMsg idMsg) {
 
-        Message newMsg = new Message(text, idMsg);
+        Message newMsg = new Message(text, idMsg, this.nameUser);
         chat.allMessages.add(newMsg);
         System.out.println(this.nameUser + " send new message: " + text);
         for (User user : chat.listUser) {
