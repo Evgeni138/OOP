@@ -4,19 +4,23 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 // Орисывается класс Task и для добавления задач в TreeSet для сортировки задач, подключаем иньерфейс Comparable
-public class Task implements Comparable<Task>{
+
+
+public class Task implements Comparable<Task> {
 
     private int id;
     private String name;
-    private int urgency;
+    private Urgency urgency;
     private Calendar dateRecord;
     private Calendar deadline;
-    private String author;
+    private Author author;
 
-    public Task(){}
+
+    public Task() {
+    }
 
     // Описывается конструктор
-    public Task(int id, String name, int urgency, Calendar dateRecord, Calendar deadline, String author) {
+    public Task(int id, String name, Urgency urgency, Calendar dateRecord, Calendar deadline, Author author) {
         this.id = id;
         this.name = name;
         this.urgency = urgency;
@@ -42,11 +46,11 @@ public class Task implements Comparable<Task>{
         this.name = name;
     }
 
-    public int getUrgency() {
+    public Urgency getUrgency() {
         return urgency;
     }
 
-    public void setUrgency(int urgency) {
+    public void setUrgency(Urgency urgency) {
         this.urgency = urgency;
     }
 
@@ -66,11 +70,11 @@ public class Task implements Comparable<Task>{
         this.deadline = deadline;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(Author author) {
         this.author = author;
     }
 
@@ -95,7 +99,13 @@ public class Task implements Comparable<Task>{
         if (!this.deadline.equals(o.deadline))
             return this.deadline.compareTo(o.deadline);
         else {
-            return Integer.compare(this.urgency, o.urgency);
+            if (this.urgency == o.urgency) return 0;
+            else if (this.urgency == Urgency.HIGH) return -1;
+            else if (this.urgency == Urgency.LOW) return 1;
+            else if (this.urgency == Urgency.MIDDLE && o.urgency == Urgency.LOW) return -1;
+            else return 1;
         }
     }
+
+
 }
