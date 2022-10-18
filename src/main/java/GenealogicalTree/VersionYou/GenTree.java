@@ -75,7 +75,7 @@ public class GenTree {
         int index = 0;
 
         for (int i = 0; i < branch.size(); i++) {
-            if (branch.get(i).person.fullName == person.fullName) {
+            if (branch.get(i).person.getFullName() == person.getFullName()) {
                 index = i;
                 break;
             }
@@ -100,7 +100,7 @@ public class GenTree {
         try {
             Person farther = searchFarther(branch, person).person;
             Node grandfarther = searchFarther(branch, farther);
-            System.out.println("grandfather " + grandfarther.person.fullName);
+            System.out.println("grandfather " + grandfarther.person.getFullName());
 
         } catch (NullPointerException e) {
             System.out.println("grandfather " + null);
@@ -108,18 +108,18 @@ public class GenTree {
     }
 
     public static void main(String[] args) {
-        Person p1 = new Person("Root_10", 70);
-        Person p2 = new Person("Root.Child_2", 40);
-        Person p3 = new Person("Root.Child_3", 49);
-        Person p4 = new Person("Root.Child_4", 44);
-        Person p5 = new Person("Root.Child_5", 47);
-        Person p6 = new Person("Root.Child_4.Child_6", 20);
-        Person p7 = new Person("Root.Child_5.Child_7", 18);
-        Person p8 = new Person("Root.Child_5.Child_8", 20);
-        Person p9 = new Person("Root.Child_5.Child_9", 17);
-        Person p10 = new Person("Root.Child_3.Child_10",18);
-        Person p11 = new Person("Root.Child_2.Child_11",19);
-        Person p12 = new Person("Root.Child_2.Child_12", 21);
+        Person p1 = new Person("Root_10", "male",70);
+        Person p2 = new Person("Root.Child_2", "male", 40);
+        Person p3 = new Person("Root.Child_3", "male", 49);
+        Person p4 = new Person("Root.Child_4", "male", 44);
+        Person p5 = new Person("Root.Child_5", "male", 47);
+        Person p6 = new Person("Root.Child_4.Child_6", "male",20);
+        Person p7 = new Person("Root.Child_5.Child_7", "male",18);
+        Person p8 = new Person("Root.Child_5.Child_8", "male", 20);
+        Person p9 = new Person("Root.Child_5.Child_9", "male", 17);
+        Person p10 = new Person("Root.Child_3.Child_10", "male", 18);
+        Person p11 = new Person("Root.Child_2.Child_11", "male", 19);
+        Person p12 = new Person("Root.Child_2.Child_12", "male", 21);
 
         Node root = new Node(p1);
         Node n1 = root.addChildren(p2);
@@ -139,7 +139,7 @@ public class GenTree {
         searchChildrens(root);
         arrayChildrens.sort(Person::compareTo); // Сортировка элементов по возросту используя интерфейс comparable
         for (Person p: arrayChildrens) {
-            System.out.println(p.fullName +" "+ p.age);
+            System.out.println(p.getFullName() +" "+ p.getAge());
         }
 
         arrayChildrens.clear();
@@ -147,7 +147,7 @@ public class GenTree {
         searchGrandChindrens(root);
         arrayChildrens.sort(Person::compareTo); // Сортировка элементов по возросту используя интерфейс comparable
         for (Person p: arrayChildrens) {
-            System.out.println(p.fullName + " " + p.age);
+            System.out.println(p.getFullName() + " "+ p.getSex() + " " + p.getAge());
         }
 
         System.out.println();
@@ -156,7 +156,7 @@ public class GenTree {
         branch = fillArrayTree(root);
 
         System.out.print("father ");
-        System.out.println(searchFarther(branch, p3).person.fullName);
+        System.out.println(searchFarther(branch, p3).person.getFullName());
         System.out.println();
         searchGrandfather(branch, p9);
     }
